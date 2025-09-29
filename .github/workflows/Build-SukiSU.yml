@@ -230,15 +230,15 @@ jobs:
           echo "vfs_patch完成"
           fi
 
-      - name: Apply LZ4KD
+      - name: Apply lz4k_oplus
         run: |
           cd kernel_workspace/kernel_platform/common
-          if [ "${{ github.event.inputs.ZRAM }}" = "true" ]; then
-            cp ../../SukiSU_patch/other/zram/zram_patch/${{ github.event.inputs.KERNEL_VERSION }}/lz4kd.patch ./
-            echo "正在打lz4kd补丁"
-            patch -p1 -F 3 < lz4kd.patch || true
-            echo '完成LZ4KD补丁'
-          fi
+          # if [ "${{ github.event.inputs.ZRAM }}" = "true" ]; then
+          #   cp ../../SukiSU_patch/other/zram/zram_patch/${{ github.event.inputs.KERNEL_VERSION }}/lz4kd.patch ./
+          #   echo "正在打lz4kd补丁"
+          #   patch -p1 -F 3 < lz4kd.patch || true
+          #   echo '完成LZ4KD补丁'
+          # fi
           if [ "${{ github.event.inputs.ZRAM }}" = "true" ]; then
             cp ../../SukiSU_patch/other/zram/zram_patch/${{ github.event.inputs.KERNEL_VERSION }}/lz4k_oplus.patch ./
             echo "正在打lz4k_oplus补丁"
